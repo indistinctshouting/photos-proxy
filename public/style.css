@@ -1,20 +1,46 @@
 body {
-  background-color: #f5f5f5;
   font-family: Helvetica;
+  margin: 0;
+  background-color: white;
+}
+
+.header {
+  height: 65px;
+  width: 100%;
+  background-color: #D1262B;
+}
+
+.header-contents {
+  width: 78%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 110px;
+  margin-top: -5px;
+}
+
+.top-section {
+  height: 400px;
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-top: 45px;
+  /* position: relative; */
 }
 
 #photos {
-  /* display: flex; */
-  margin-top: 20%;
-  margin-left: 25%;
+  position: relative;
+  top: 45%;
+  margin-left: 34%;
 }
+
+
+
 
 #reviews {
 
 }
 
 #sidebar {
-  /* display: flex;
-  float: right;
-  margin-top: 30%; */
+
 }

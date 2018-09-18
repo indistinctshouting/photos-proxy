@@ -8,15 +8,30 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous"
     >
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
     <title>[indistinct shouting]</title>
   </head>
   <body>
-    <script src="lib/react.development.js"></script>
-    <script src="lib/react-dom.development.js"></script>
+    <div class="header">
+      <div class="header-contents">
+        <img class="logo" src="logo.png">
+      </div>
+    </div>
 
-    <div id="photos"></div>
+    <div class="top-section">
+      <div id="photos"></div>
+    </div>
+
+
+
     <div id="reviews"></div>
     <div id="sidebar"></div>
+
+
+
+
+
 
     <!-- PHOTOS -->
     <script src="http://localhost:3003/:id/bundle.js"></script>
@@ -24,7 +39,6 @@
     <script src="http://localhost:3001/restaurant/:id/bundle.js"></script>
     <!-- REVIEWS -->
     <script src="http://localhost:3002/:id/bundle.js"></script>
-
     <script>
       ReactDOM.render(React.createElement(Photos), document.getElementById('photos'));
       ReactDOM.render(React.createElement(Sidebar), document.getElementById('sidebar'));
