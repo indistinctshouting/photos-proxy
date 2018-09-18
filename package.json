@@ -2,15 +2,18 @@
   "name": "proxy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "grunt": "^1.0.3"
+    "grunt": "^1.0.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^1.1.0",

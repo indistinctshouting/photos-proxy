@@ -2,31 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>[indistinct shouting]</title>
   </head>
   <body>
-    <div id="reviews-ratings"></div>
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+
     <div id="photos"></div>
+    <div id="reviews"></div>
     <div id="sidebar"></div>
-    <script src="/lib/react.development.js"></script>
-    <script src="/lib/react-dom.development.js"></script>
-    <script src="http://localhost:3001/app.js"></script>
-    <script src="http://localhost:3002/app.js"></script>
-    <script src="http://localhost:3003/app.js"></script>
+
+    <!-- PHOTOS -->
+    <script src="http://localhost:3003/:id/bundle.js"></script>
+    <!-- REVIEWS -->
+    <script src="http://localhost:3002/:id/bundle.js"></script>
+    <!-- SIDEBAR -->
+    <script src="http://localhost:3001/restaurant/:id/bundle.js"></script>
+
     <script>
-      ReactDOM.render(
-        React.createElement(Info),
-        document.getElementById('reviews-ratings')
-      );
-      ReactDOM.render(
-        React.createElement(CountDown),
-        document.getElementById('photos')
-      );
-      ReactDOM.render(
-        React.createElement(Related),
-        document.getElementById('sidebar')
-      );
+      ReactDOM.render(React.createElement(Photos), document.getElementById('photos'));
+      ReactDOM.render(React.createElement(Sidebar), document.getElementById('sidebar'));
+      ReactDOM.render(React.createElement(Reviews), document.getElementById('reviews'));
     </script>
   </body>
 </html>
