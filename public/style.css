@@ -1,14 +1,19 @@
-#Info {
-  display: block;
+body {
+  background-color: #f5f5f5;
 }
 
-#CountDown {
-  margin-left: 5px;
-  display: inline-block;
+#photos {
+  /* display: flex;
+  margin-top: 20%;
+  margin-left: 25%; */
 }
 
-#Related {
-  margin: 10%;
-  display: block;
+#reviews {
+
 }
 
+#sidebar {
+  /* display: flex;
+  float: right;
+  margin-top: 30%; */
+}
