@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <title>[indistinct shouting]</title>
+  </head>
+  <body>
+    <div id="reviews-ratings"></div>
+    <div id="photos"></div>
+    <div id="sidebar"></div>
+    <script src="/lib/react.development.js"></script>
+    <script src="/lib/react-dom.development.js"></script>
+    <script src="http://localhost:3001/app.js"></script>
+    <script src="http://localhost:3002/app.js"></script>
+    <script src="http://localhost:3003/app.js"></script>
+    <script>
+      ReactDOM.render(
+        React.createElement(Info),
+        document.getElementById('reviews-ratings')
+      );
+      ReactDOM.render(
+        React.createElement(CountDown),
+        document.getElementById('photos')
+      );
+      ReactDOM.render(
+        React.createElement(Related),
+        document.getElementById('sidebar')
+      );
+    </script>
+  </body>
+</html>
