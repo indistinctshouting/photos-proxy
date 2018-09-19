@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const BodyParser = require('body-parser');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const axios = require('axios');
 
 app.use(morgan('dev'));
 app.use('/:id', express.static(path.join(__dirname, 'public')));
@@ -17,81 +18,42 @@ app.use('/:rest_id', express.static(__dirname + './../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Reviews Server Info:
-mongoose.connect('mongodb://localhost/fec');
-
-const reviewSchema = new mongoose.Schema({
-  reviewId: Number,
-  restaurantId: Number,
-  rating: Number,
-  date: Date,
-  text: String,
-  owner: {
-    picture: String,
-    name: String,
-    location: String,
-    friends: Number,
-    reviewCount: Number,
-    photos: Number,
-    checkIns: Number,
-    elite: Boolean
-  },
-  updated: Boolean,
-  upvotes: {
-    useful: Number,
-    funny: Number,
-    cool: Number
-  }
-});
-
-const Review = mongoose.model('Review', reviewSchema);
-
-const getRestaurantReviews = (id, callback) => {
-  console.log(id);
-  Review.find({restaurantId: id}, (err, reviews) => {
-    callback(reviews);
-  });
-};
-
 app.get('/reviews/id/:id', (req, res) => {
-  getRestaurantReviews(req.params.id, (reviews) => {
-    res.send(reviews);
-  });
+  axios.get(`http://localhost:3002/reviews/id/${req.params.id}`)
+  .then(function (response) {
+    res.send(response.data);
+    // console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 });
 
 //Photos Server Info:
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'photos'
-});
-
-var getPhotos = function(restId, callback) {
-  connection.query(`SELECT * FROM photos WHERE rest_id = ${restId}`, function (err, rows, fields) {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, rows);
-    }
-  });
-};
-
 app.get('/photos/:rest_id', function(req, res) {
-  getPhotos(req.params.rest_id, function(err, data) {
-    if (err) {
-      res.sendStatus(503);
-    } else {
-      res.send(data);
-    }
-  });
+  axios.get(`http://localhost:3001/photos/${req.params.rest_id}`)
+  .then(function (response) {
+    res.send(response.data);
+    // console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 });
 
 //Sidebar Server Info:
-// mongoose.connect('mongodb://bro:brobro1@ds239692.mlab.com:39692/repo_bro');
-
+app.get('/summary/id/:id', function(req, res) {
+  axios.get(`http://localhost:3003/summary/id/${req.params.id}`)
+  .then(function (response) {
+    res.send(response.data);
+    // console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+});
 
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
-
-module.exports.getRestaurantReviews = getRestaurantReviews;
