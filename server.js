@@ -85,6 +85,10 @@ app.get('/photos/:rest_id', function(req, res) {
   });
 });
 
+//Sidebar Server Info:
+// mongoose.connect('mongodb://bro:brobro1@ds239692.mlab.com:39692/repo_bro');
+
+
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);

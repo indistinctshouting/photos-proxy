@@ -15,30 +15,32 @@
   <body>
     <div class="header">
       <div class="header-contents">
-        <img class="logo" src="logo.png">
+        <img class="logo" src="logo.png" />
       </div>
     </div>
 
     <div class="top-section">
+      <!-- <p class="title">[indistinct shouting]</p> -->
+      <div class='map-container'>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2199.3333524706914!2d-1.607722684615486!3d51.562632314484766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMzJzQ1LjUiTiAxwrAzNicxOS45Ilc!5e1!3m2!1sen!2sus!4v1537313604032" width="600" height="450" frameborder="1" style="border:0" allowfullscreen></iframe> -->
+        <img src="map-text.png" />
+      </div>
       <div id="photos"></div>
     </div>
 
 
-
-    <div id="reviews"></div>
-    <div id="sidebar"></div>
-
-
-
+    <div class="bottom-container">
+      <div id="reviews"></div>
+      <div id="sidebar"></div>
+    </div>
 
 
-
+    <!-- REVIEWS -->
+    <script src="http://localhost:3002/:id/bundle.js"></script>
     <!-- PHOTOS -->
     <script src="http://localhost:3003/:id/bundle.js"></script>
     <!-- SIDEBAR -->
     <script src="http://localhost:3001/restaurant/:id/bundle.js"></script>
-    <!-- REVIEWS -->
-    <script src="http://localhost:3002/:id/bundle.js"></script>
     <script>
       ReactDOM.render(React.createElement(Photos), document.getElementById('photos'));
       ReactDOM.render(React.createElement(Sidebar), document.getElementById('sidebar'));
