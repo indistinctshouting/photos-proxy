@@ -1,7 +1,5 @@
 body {
-  font-family: Helvetica;
   margin: 0;
-  background-color: white;
 }
 
 .header {
@@ -59,18 +57,16 @@ body {
 }
 
 .bottom-container {
-  width: 90%;
+  width: 95%;
   margin-top: 100px;
 }
 
 #reviews-ratings {
-  /* width: 65%; */
-  margin-left: 9%;
+  margin-left: 6%;
   float: left;
 }
 
 #sidebar {
-  /* margin-top: 6%; */
   float: left;
   margin-left: 55px;
 }
