@@ -47,14 +47,6 @@ body {
   margin-left: 130px;
 }
 
-iframe {
-  display: block;
-  width: 290px;
-  height: 140px;
-  margin: 5px auto;
-  border: 2px solid #E6E6E6;
-}
-
 .map-container img {
   width: 290px;
   height: 143px;
@@ -67,18 +59,18 @@ iframe {
 }
 
 .bottom-container {
-  width: 85%;
-  margin: 0 auto;
+  width: 90%;
+  margin-top: 100px;
 }
 
-#reviews {
-  width: 65%;
+#reviews-ratings {
+  /* width: 65%; */
+  margin-left: 9%;
   float: left;
-  margin-top: 8%;
 }
 
 #sidebar {
-  margin-top: 6%;
+  /* margin-top: 6%; */
   float: left;
   margin-left: 55px;
 }
