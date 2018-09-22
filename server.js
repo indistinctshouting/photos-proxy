@@ -8,7 +8,12 @@ const BodyParser = require('body-parser');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const axios = require('axios');
+const reviewsURL = 'http://18.223.122.135:3002';
+const photosURL = 'http://54.193.49.49';
+const sidebarURL = 'http://yelp-sidebar.hv38tyz7mj.us-west-2.elasticbeanstalk.com';
+const cors = require('cors');
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use('/:id', express.static(path.join(__dirname, 'public')));
 app.use(BodyParser.urlencoded({extended: true}));
@@ -19,38 +24,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Reviews Server Info:
 app.get('/reviews/id/:id', (req, res) => {
-  axios.get(`http://localhost:3002/reviews/id/${req.params.id}`)
-  .then(function (response) {
-    res.send(response.data);
-    // console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  res.redirect(reviewsURL + `/reviews/id/${req.params.id}`)
 });
 
 //Photos Server Info:
 app.get('/photos/:rest_id', function(req, res) {
-  axios.get(`http://localhost:3001/photos/${req.params.rest_id}`)
-  .then(function (response) {
-    res.send(response.data);
-    // console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  res.redirect(photosURL + `/photos/${req.params.rest_id}`)
 });
 
 //Sidebar Server Info:
 app.get('/summary/id/:id', function(req, res) {
-  axios.get(`http://localhost:3003/summary/id/${req.params.id}`)
-  .then(function (response) {
-    res.send(response.data);
-    // console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  res.redirect(sidebarURL + `/summary/id/${req.params.id}`)
 });
 
 
